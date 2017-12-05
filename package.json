@@ -1,0 +1,45 @@
+{
+  "name": "list-loader",
+  "version": "1.0.0",
+  "description": "text list loader module for webpack",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "npm run build",
+	"prepublish": "npm run build",
+    "build": "cross-env NODE_ENV=prod babel ./src -d ./dist",
+	"eslint": "eslint .",
+    "test": "cross-env NODE_ENV=test mocha --require babel-core/register",
+    "coverage": "nyc --reporter=lcov --reporter=text npm run test",
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sapphiredev/list-loader.git"
+  },
+  "keywords": [
+    "webpack-loader"
+  ],
+  "author": "sapphire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sapphiredev/list-loader/issues"
+  },
+  "homepage": "https://github.com/sapphiredev/list-loader#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "cross-env": "^5.1.1",
+    "eslint": "^4.12.1",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "loader-utils": "^1.1.0"
+  }
+}
