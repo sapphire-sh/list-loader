@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "node"
+
+sudo: false
+
+script:
+  - npm test
+
+notifications:
+  email: false
+
+after_success:
+  - npm run coveralls
