@@ -1,6 +1,6 @@
 {
   "name": "list-loader",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "text list loader module for webpack",
   "main": "./dist/index.js",
   "files": [
