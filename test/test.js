@@ -230,6 +230,43 @@ describe('list-loader', () => {
 		});
 	});
 
+	it('number_values', (done) => {
+		compiler.run('number_values', {
+			'number': true,
+		}, (err, result) => {
+			if(err) {
+				console.log(err);
+			}
+
+			expect(result).to.deep.equal([
+				1,
+				1,
+				2,
+				3,
+				5,
+			]);
+
+			done();
+		})
+	});
+
+	it('date', (done) => {
+		compiler.run('date', {
+			'date': true,
+		}, (err, result) => {
+			if(err) {
+				console.log(err);
+			}
+
+			expect(result).to.deep.equal([
+				new Date('2017-12-6'),
+				new Date('2017-12-6T13:23:00+09:00'),
+			]);
+
+			done();
+		});
+	});
+
 	after((done) => {
 		const bundle = path.resolve(config.output.path, config.output.filename);
 		fs.unlink(bundle, (err) => {

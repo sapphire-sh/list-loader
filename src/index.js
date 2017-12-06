@@ -1,14 +1,33 @@
 import loaderUtils from 'loader-utils';
 
+function fillDefaultOptions(options) {
+	if(options.delimiter === undefined) {
+		options.delimiter = '\n';
+	}
+}
+
+function generateModule(options, list) {
+	let data = '[';
+	if(options.number === true) {
+		data += list.join(',') + ']';
+	} else if (options.date === true) {
+		data += list.map((e) => {
+			return `new Date("${e}")`;
+		}).join(',') + ']';
+	} else {
+		data = JSON.stringify(list);
+	}
+
+	return `module.exports = ${data}`;
+}
+
 export default function loader(content) {
 	let options = {};
 	if(this !== undefined) {
 		options = loaderUtils.getOptions(this) || {};
 	}
 
-	if(options.delimiter === undefined) {
-		options.delimiter = '\n';
-	}
+	fillDefaultOptions(options);
 
 	if(options.trim !== false) {
 		content = content.trim();
@@ -22,5 +41,5 @@ export default function loader(content) {
 		});
 	}
 
-	return `module.exports = ${JSON.stringify(list)}`;
+	return generateModule(options, list);
 }
