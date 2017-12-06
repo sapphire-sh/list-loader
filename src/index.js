@@ -22,5 +22,16 @@ export default function loader(content) {
 		});
 	}
 
-	return `module.exports = ${JSON.stringify(list)}`;
+	let data = '[';
+	if(options.number === true) {
+		data += list.join(',') + ']';
+	} else if (options.date === true) {
+		data += list.map((e) => {
+			return `new Date("${e}")`;
+		}).join(',') + ']';
+	} else {
+		data = JSON.stringify(list);
+	}
+
+	return `module.exports = ${data}`;
 }
