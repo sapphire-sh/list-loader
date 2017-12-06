@@ -1,5 +1,3 @@
-import fs from 'fs';
-
 import loaderUtils from 'loader-utils';
 
 export default function loader(content) {
