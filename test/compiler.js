@@ -1,4 +1,5 @@
 import path from 'path';
+import vm from 'vm';
 
 import webpack from 'webpack';
 
@@ -57,7 +58,17 @@ class Compiler {
 				return;
 			}
 
-			callback(null, JSON.parse(info.modules[1].source.substr(17)));
+			const sandbox = {
+				module: {}
+			};
+
+			try {
+				vm.runInNewContext(info.modules[1].source, sandbox);
+			} catch(e) {
+				callback(e);
+				return;
+			}
+			callback(null, sandbox.module.exports);
 		});
 	}
 }
