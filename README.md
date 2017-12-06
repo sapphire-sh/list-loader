@@ -42,6 +42,6 @@ $ npm install list-loader --save-dev
 
 Name | Type | Default | Description
 ----|----|----|----
-`delimiter` | `{string\|number\|RegExp}` | `'\n'` | Set delimiter
-`filter` | `boolean` | `false` | Enable / Disable filtering empty elements
-`trim` | `boolean` | `true` | Enable / Disable trimming
+`delimiter` | `{string|number|RegExp}` | `'\n'` | Set delimiter
+`filter` | `{boolean}` | `false` | Enable / Disable filtering empty elements
+`trim` | `{boolean}` | `true` | Enable / Disable trimming
