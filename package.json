@@ -4,13 +4,13 @@
   "description": "text list loader module for webpack",
   "main": "./dist/index.js",
   "files": [
-	  "dist"
+    "dist"
   ],
   "scripts": {
     "start": "npm run build",
-	"prepublish": "npm run build",
+    "prepublish": "npm run build",
     "build": "cross-env NODE_ENV=prod babel ./src -d ./dist",
-	"eslint": "eslint .",
+    "eslint": "eslint .",
     "test": "cross-env NODE_ENV=test mocha --require babel-core/register",
     "coverage": "nyc --reporter=lcov --reporter=text npm run test",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
@@ -44,5 +44,8 @@
   },
   "dependencies": {
     "loader-utils": "^1.1.0"
+  },
+  "peerDependencies": {
+    "webpack": "^2.0.0 || ^3.0.0"
   }
 }
