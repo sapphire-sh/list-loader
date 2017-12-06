@@ -14,7 +14,9 @@ describe('list-loader', () => {
 	const compiler = new Compiler();
 
 	it('loader', (done) => {
-		loader('1234');
+		const result = loader('1\n2\n3\n4');
+
+		expect(result).to.equal('module.exports = ["1","2","3","4"]');
 
 		done();
 	});
