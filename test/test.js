@@ -22,7 +22,7 @@ describe('list-loader', () => {
 	});
 
 	it('default', (done) => {
-		compiler.run('default', undefined, (err, result) => {
+		compiler.run('default', (err, result) => {
 			if(err) {
 				console.log(err);
 			}
@@ -230,8 +230,8 @@ describe('list-loader', () => {
 		});
 	});
 
-	it('number_values', (done) => {
-		compiler.run('number_values', {
+	it('number elements', (done) => {
+		compiler.run('number_elements', {
 			'number': true,
 		}, (err, result) => {
 			if(err) {
@@ -247,11 +247,11 @@ describe('list-loader', () => {
 			]);
 
 			done();
-		})
+		});
 	});
 
-	it('date', (done) => {
-		compiler.run('date', {
+	it('date elements', (done) => {
+		compiler.run('date_elements', {
 			'date': true,
 		}, (err, result) => {
 			if(err) {

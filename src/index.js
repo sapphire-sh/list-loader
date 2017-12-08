@@ -7,14 +7,17 @@ function fillDefaultOptions(options) {
 }
 
 function generateModule(options, list) {
-	let data = '[';
+	let data;
 	if(options.number === true) {
-		data += list.join(',') + ']';
-	} else if (options.date === true) {
-		data += list.map((e) => {
-			return `new Date("${e}")`;
-		}).join(',') + ']';
-	} else {
+		data = `[${list.join(',')}]`;
+	}
+	else if(options.date === true) {
+		data = `[${list.map((e) => {
+			return `new Date('${e}')`;
+		})
+		.join(',')}]`;
+	}
+	else {
 		data = JSON.stringify(list);
 	}
 

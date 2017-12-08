@@ -27,12 +27,18 @@ $ npm install list-loader --save-dev
 	'rules': [
 		{
 			'test': /\.txt$/,
-			'loader': 'list-loader',
-			'options': {
-				'delimiter': '\n',
-				'filter': false,
-				'trim': true,
-			},
+			'use': [
+				{
+					'loader': 'list-loader',
+					'options': {
+						'delimiter': '\n',
+						'filter': false,
+						'trim': true,
+						'number': false,
+						'date': false,
+					},
+				},
+			],
 		},
 	],
 },
@@ -45,5 +51,5 @@ Name | Type | Default | Description
 `delimiter` | `{string\|number\|RegExp}` | `'\n'` | Set delimiter
 `filter` | `{boolean}` | `false` | Enable / Disable filtering empty elements
 `trim` | `{boolean}` | `true` | Enable / Disable trimming
-`number` | `{boolean}` | `false` | Import list values as number
-`date` | `{boolean}` | `false` | Import list values as Date object
+`number` | `{boolean}` | `false` | Enable / Disable parsing numbers
+`date` | `{boolean}` | `false` | Enable / Disable parsing dates

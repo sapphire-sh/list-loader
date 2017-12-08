@@ -33,8 +33,12 @@ class Compiler {
 				'rules': [
 					{
 						'test': /\.txt$/,
-						'loader': path.resolve(__dirname, '../src'),
-						'options': options,
+						'use': [
+							{
+								'loader': path.resolve(__dirname, '../src'),
+								'options': options,
+							},
+						],
 					},
 				],
 			},
@@ -59,13 +63,14 @@ class Compiler {
 			}
 
 			const sandbox = {
-				module: {}
+				'module': {},
 			};
 
 			try {
 				vm.runInNewContext(info.modules[1].source, sandbox);
-			} catch(e) {
-				callback(e);
+			}
+			catch(err) {
+				callback(err);
 				return;
 			}
 			callback(null, sandbox.module.exports);
