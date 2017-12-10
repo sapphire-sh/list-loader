@@ -26,8 +26,9 @@ function generateModule(options, list) {
 
 export default function loader(content) {
 	let options = {};
+
 	if(this !== undefined) {
-		options = loaderUtils.getOptions(this) || {};
+		options = loaderUtils.getOptions(this);
 	}
 
 	fillDefaultOptions(options);
