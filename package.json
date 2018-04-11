@@ -11,8 +11,8 @@
     "prepublish": "npm run build",
     "build": "cross-env NODE_ENV=prod babel ./src -d ./dist",
     "eslint": "eslint .",
-    "test": "cross-env NODE_ENV=test mocha --require babel-core/register",
-    "coverage": "nyc --reporter=lcov --reporter=text npm run test",
+    "test": "jest --no-cache",
+    "coverage": "jest --coverage --no-cache",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
@@ -31,15 +31,14 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.3",
+    "babel-eslint": "^8.2.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
-    "cross-env": "^5.1.1",
-    "eslint": "^4.12.1",
-    "mocha": "^4.0.1",
-    "nyc": "^11.3.0",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "jest": "^22.4.3",
     "webpack": "^3.10.0"
   },
   "dependencies": {
@@ -47,5 +46,11 @@
   },
   "peerDependencies": {
     "webpack": "^2.0.0 || ^3.0.0"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test"
+	]
   }
 }

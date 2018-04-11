@@ -267,7 +267,7 @@ describe('list-loader', () => {
 		});
 	});
 
-	after((done) => {
+	afterAll((done) => {
 		const bundle = path.resolve(config.output.path, config.output.filename);
 		fs.unlink(bundle, (err) => {
 			if(err) {
