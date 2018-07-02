@@ -3,7 +3,6 @@
 [![npm](https://img.shields.io/npm/v/list-loader.svg)](https://www.npmjs.com/package/list-loader)
 [![Build Status](https://travis-ci.org/sapphiredev/list-loader.svg?branch=master)](https://travis-ci.org/sapphiredev/list-loader)
 [![Coverage Status](https://coveralls.io/repos/github/sapphiredev/list-loader/badge.svg?branch=master)](https://coveralls.io/github/sapphiredev/list-loader?branch=master)
-[![Dependency Status](https://gemnasium.com/badges/github.com/sapphiredev/list-loader.svg)](https://gemnasium.com/github.com/sapphiredev/list-loader)
 [![Maintainability](https://api.codeclimate.com/v1/badges/e1ed105c37c9df52611a/maintainability)](https://codeclimate.com/github/sapphiredev/list-loader/maintainability)
 
 ## Introduction
