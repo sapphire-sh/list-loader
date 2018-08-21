@@ -11,8 +11,8 @@
     "prepublish": "npm run build",
     "build": "cross-env NODE_ENV=prod babel ./src -d ./dist",
     "eslint": "eslint .",
-    "test": "jest --no-cache",
-    "coverage": "jest --coverage --no-cache",
+    "test": "jest --no-cache --detectOpenHandles",
+    "coverage": "jest --coverage --no-cache --detectOpenHandles",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
@@ -31,15 +31,15 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.5",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-3": "^6.24.1",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
-    "eslint": "^5.0.1",
-    "jest": "^23.2.0",
-    "webpack": "^4.14.0"
+    "eslint": "^5.4.0",
+    "jest": "^23.5.0",
+    "webpack": "^4.17.0"
   },
   "dependencies": {
     "loader-utils": "^1.1.0"
@@ -48,6 +48,7 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/test"
-    ]
+    ],
+    "testEnvironment": "node"
   }
 }

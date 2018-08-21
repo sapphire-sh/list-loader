@@ -7,8 +7,6 @@ import config from './webpack.config';
 
 class Compiler {
 	run(entry, options, callback) {
-		let self = this;
-
 		if(entry === undefined || (typeof entry !== 'string')) {
 			throw new Error('entry file is not valid');
 		}
@@ -31,6 +29,12 @@ class Compiler {
 			'entry': path.resolve(__dirname, 'cases', entry),
 			'module': {
 				'rules': [
+					{
+						'test': /\.js$/,
+						'use': {
+							'loader': 'babel-loader',
+						},
+					},
 					{
 						'test': /\.txt$/,
 						'use': [
