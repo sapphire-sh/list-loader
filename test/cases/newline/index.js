@@ -1,1 +1,1 @@
-import txt from './list.txt';
+import './list.txt';
