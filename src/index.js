@@ -31,6 +31,10 @@ export default function loader(content) {
 		options = loaderUtils.getOptions(this);
 	}
 
+	if(options === null) {
+		options = {};
+	}
+
 	fillDefaultOptions(options);
 
 	if(options.trim !== false) {
